@@ -1,0 +1,10 @@
+<table class="table table-striped table-bordered table-condensed">  <tr>
+    <th>username</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><strong><%= user.name %></strong></td>
+  </tr>
+<% end %>
+</table>

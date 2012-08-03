@@ -1,0 +1,21 @@
+  <div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <% @slider.each do |feature_slider| %>
+        <div class="<% if feature_slider.id == 1 %>active <% end %>item" style="width:98.5%;">
+            <%= image_tag feature_slider.image, :class => "thumbnail" %>
+
+        <!--div class="carousel-caption" style="margin-left:5px; margin-bottom:4px; width:788px;"><img src="/assets/images/logo_sml_trans.png" title="New York Staff Exchange" style="float:right; margin-left:10px;" />
+            <h4><%= feature_slider.title %></h4>
+            <p><%= feature_slider.description %></p>
+        </div-->
+
+        </div>
+
+        <% end %>
+
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>

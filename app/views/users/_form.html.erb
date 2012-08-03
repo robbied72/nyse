@@ -1,0 +1,207 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this site_info from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="form-horizontal">
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Personal Details</legend>
+
+<div class="control-group">
+<label class="control-label" for="input01">Name</label>
+<div class="controls">
+    <%= f.text_field :name, :readonly => true, :class => "input-xlarge uneditable-input" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">First Name</label>
+<div class="controls">
+    <%= f.text_field :first_name, :readonly => true, :class => "input-xlarge uneditable-input" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Last Name</label>
+<div class="controls">
+    <%= f.text_field :last_name, :readonly => true, :class => "input-xlarge uneditable-input" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Email</label>
+<div class="controls">
+    <%= f.text_field :email, :class => "input-xlarge" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="select01">Location</label>
+<div class="controls">
+<%= collection_select(:user, :location_id, Location.all, :id, :title, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Home Phone</label>
+<div class="controls">
+    <%= f.text_field :home_phone, :class => "input-xlarge" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Cell Phone</label>
+<div class="controls">
+    <%= f.text_field :cell_phone, :class => "input-xlarge" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Zipcode</label>
+<div class="controls">
+    <%= f.text_field :zipcode, :class => "input-medium" %>
+</div>
+</div>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Work Experience</legend>
+
+<div class="control-group">
+<label class="control-label" for="multiSelect">What sectors do you have experience in?</label>
+<div class="controls">
+<%= f.collection_select :sector_ids, Sector.order(:name), :id, :name, {}, {multiple: true} %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="select01">Years of Experiene</label>
+<div class="controls">
+<%= collection_select(:user, :years_experience_id, YearsExperience.all, :id, :title, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="input01">Current Job Title</label>
+<div class="controls">
+    <%= f.text_field :current_job_title,:readonly => true, :class => "input-xlarge uneditable-input" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="select01">Current Salary</label>
+<div class="controls">
+<%= collection_select(:user, :current_salary_id, CurrentSalary.all, :id, :title, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">List Your Key Skills</label>
+<div class="controls">
+    <%= f.text_area :key_skills, :class => "input-xxlarge", :rows => 10 %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="multiSelect">Additional Languages?</label>
+<div class="controls">
+<%= f.collection_select :language_ids, Language.order(:title), :id, :title, {}, {multiple: true} %>
+</div>
+</div>
+
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Education</legend>
+
+<div class="control-group">
+<label class="control-label" for="select01">Highest qualification</label>
+<div class="controls">
+<%= collection_select(:user, :education_level_id, EducationLevel.all, :id, :title, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Your Next Move</legend>
+
+<div class="control-group">
+<label class="control-label" for="input01">Personal Summary</label>
+<div class="controls">
+    <%= f.text_area :personal_summary, :class => "input-xxlarge", :rows => 10 %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="input01">Desired Job Title</label>
+<div class="controls">
+    <%= f.text_field :desired_job_title, :class => "input-xlarge" %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="multiSelect">Desired Location(s)?</label>
+<div class="controls">
+<%= f.collection_select :location_ids, Location.order(:title), :id, :title, {}, {multiple: true} %>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="select01">Desired Salary</label>
+<div class="controls">
+<%= collection_select(:user, :desired_salary_id, DesiredSalary.all, :id, :title, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="select01">Type of Position</label>
+<div class="controls">
+<%= collection_select(:user, :job_type_id, JobType.all, :id, :name, {:include_blank => 'Please Select'})%>
+</div>
+</div>
+</filedset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Work Eligibility</legend>
+
+<div class="control-group">
+<label class="control-label" for="optionsCheckbox">Are you eligible to live and work in the United States?</label>
+<div class="controls">
+<label class="checkbox">
+<%= f.check_box :work_in_usa %>
+</label>
+</div>
+</div>
+
+</fieldset>
+</div>
+<div class="form-actions">
+<%= f.submit "Save Profile", :class => "btn btn-primary" %>
+</div>
+
+</div>
+
+<% end %>

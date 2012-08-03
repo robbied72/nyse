@@ -1,0 +1,27 @@
+<h1>Listing feature_sliders</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Image</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feature_sliders.each do |feature_slider| %>
+  <tr>
+    <td><%= feature_slider.title %></td>
+    <td><%= feature_slider.image %></td>
+    <td><%= feature_slider.active %></td>
+    <td><%= link_to 'Show', feature_slider %></td>
+    <td><%= link_to 'Edit', edit_feature_slider_path(feature_slider) %></td>
+    <td><%= link_to 'Destroy', feature_slider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feature slider', new_feature_slider_path %>

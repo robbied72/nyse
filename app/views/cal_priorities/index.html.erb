@@ -1,0 +1,23 @@
+<h1>Listing cal_priorities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cal_priorities.each do |cal_priority| %>
+  <tr>
+    <td><%= cal_priority.name %></td>
+    <td><%= link_to 'Show', cal_priority %></td>
+    <td><%= link_to 'Edit', edit_cal_priority_path(cal_priority) %></td>
+    <td><%= link_to 'Destroy', cal_priority, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cal priority', new_cal_priority_path %>

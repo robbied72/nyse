@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  sector_id: 1
+  location: MyString
+  zipcode: MyString
+  latitude: 1.5
+  longitude: 1.5
+  salary: 9.99
+  job_type_id: 1
+  company_id: 1
+  contact_name: MyString
+  contact_email: MyString
+  description: MyText
+  active: false
+  publish_date: 2012-07-15
+  expiry_date: 2012-07-15
+
+two:
+  title: MyString
+  sector_id: 1
+  location: MyString
+  zipcode: MyString
+  latitude: 1.5
+  longitude: 1.5
+  salary: 9.99
+  job_type_id: 1
+  company_id: 1
+  contact_name: MyString
+  contact_email: MyString
+  description: MyText
+  active: false
+  publish_date: 2012-07-15
+  expiry_date: 2012-07-15

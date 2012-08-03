@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  
+<h1>
+<%= @vacancy.title %>
+<small style="color:red;"><%= number_to_currency(@vacancy.salary) %></small>
+</h1>
+</div>
+
+<p>
+<div class="well span4" style="float:right; border:1px solid #ccc;">
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/CompanyProfile" data-id="<%= @vacancy.company.name %>" data-format="inline" data-related="false"></script>
+
+
+<div align="center">
+<span class="label label-inverse"><%= @vacancy.location.title %></span>&nbsp;
+  <span class="label label-info"><%= @vacancy.job_type.name %></span>&nbsp;
+  <span class="label label-warning"><%= @vacancy.sector.name %></span>&nbsp;
+  <span class="label label-success">Published <%= @vacancy.publish_date.strftime('%m/%d/%Y') %></span>&nbsp;
+  <span class="label label-important">Expires in <%= distance_of_time_in_words(@vacancy.expiry_date, 0.minutes.from_now) %></span>
+
+</div>
+<br />
+<img style="position:relative; margin-bottom:15px; border:1px solid #ccc;" src="http://maps.googleapis.com/maps/api/staticmap?center=
+<%= @vacancy.latitude %>, <%= @vacancy.longitude %>&zoom=15&size=350x181&maptype=roadmap&markers=color:blue%7C
+<%= @vacancy.latitude %>, <%= @vacancy.longitude %>&sensor=false" />
+</p>
+
+<h4>Other Nearby Vacancies</h4>
+<% for vacancy in @vacancy.nearbys(10) %>
+  <p><b><%= link_to vacancy.title, vacancy %></b> (<%= vacancy.distance.round(2) %> miles)</p>
+<% end %>
+
+<p>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-500335b217bae7c5"></script>
+<!-- AddThis Button END -->
+</p>
+
+<p>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/Share" data-counter="top"></script>
+</p>
+</div>
+
+<p>
+  <b>Contact Name:</b>
+  <%= @vacancy.contact_name %> - <%= mail_to @vacancy.contact_email %>
+</p>
+
+<p>
+  <%= raw @vacancy.description %>
+</p>
+
+<h3>Tags</h3>
+  <% @vacancy.jobtags.each do |jobtag| %>
+    <span class="label label-warning" style="font-size:10pt;"><%= jobtag.title %></span>
+  <% end %>
+<br /><br />
+<p>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/CompanyInsider" data-id="<%= @vacancy.company.name %>" data-modules="innetwork,newhires,jobchanges"></script>
+</p>
+
+<div style="clear:both"></div>

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site_info.name %>
+</p>
+
+<p>
+  <b>Address line 1:</b>
+  <%= @site_info.address_line_1 %>
+</p>
+
+<p>
+  <b>Address line 2:</b>
+  <%= @site_info.address_line_2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @site_info.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @site_info.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @site_info.zip %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%= @site_info.telephone %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @site_info.url %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @site_info.email %>
+</p>
+
+<p>
+  <b>Google map api:</b>
+  <%= @site_info.google_map_api %>
+</p>
+
+<p>
+  <b>Meta keywords:</b>
+  <%= @site_info.meta_keywords %>
+</p>
+
+<p>
+  <b>Meta description:</b>
+  <%= @site_info.meta_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_info_path(@site_info) %> |
+<%= link_to 'Back', site_infos_path %>

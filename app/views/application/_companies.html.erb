@@ -1,0 +1,5 @@
+	<div class="well" style="background-color:#fff; border:1px solid #999; max-width:830px;">
+		<% @companies.each do |company| %>
+			<%= image_tag company.image, :style => "width:120px;" %>
+		<% end %>
+	</div>

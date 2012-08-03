@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  note: MyText
+  due: 2012-08-01
+  cal_priority_id: 1
+  company_id: 1
+  company_admin_id: 1
+
+two:
+  title: MyString
+  note: MyText
+  due: 2012-08-01
+  cal_priority_id: 1
+  company_id: 1
+  company_admin_id: 1

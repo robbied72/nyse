@@ -1,0 +1,23 @@
+<h1>Listing years_experiences</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @years_experiences.each do |years_experience| %>
+  <tr>
+    <td><%= years_experience.title %></td>
+    <td><%= link_to 'Show', years_experience %></td>
+    <td><%= link_to 'Edit', edit_years_experience_path(years_experience) %></td>
+    <td><%= link_to 'Destroy', years_experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Years experience', new_years_experience_path %>

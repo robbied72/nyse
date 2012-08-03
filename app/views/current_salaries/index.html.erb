@@ -1,0 +1,23 @@
+<h1>Listing current_salaries</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @current_salaries.each do |current_salary| %>
+  <tr>
+    <td><%= current_salary.title %></td>
+    <td><%= link_to 'Show', current_salary %></td>
+    <td><%= link_to 'Edit', edit_current_salary_path(current_salary) %></td>
+    <td><%= link_to 'Destroy', current_salary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Current salary', new_current_salary_path %>

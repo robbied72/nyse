@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @current_salary.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_current_salary_path(@current_salary) %> |
+<%= link_to 'Back', current_salaries_path %>

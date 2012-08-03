@@ -1,0 +1,25 @@
+<%= render "jobsearch" %>
+<table class="table table-striped table-bordered table-condensed">  <tr>
+    <th>Title</th>
+    <th>Sector</th>
+    <th>Location</th>
+    <th>Salary</th>
+    <th>Job type</th>
+    <th>Company</th>
+    <th>Expiry date</th>
+    <th></th>
+  </tr>
+
+<% @vacancies.each do |vacancy| %>
+  <tr>
+    <td><strong><%= vacancy.title %></strong></td>
+    <td><%= vacancy.sector.name %></td>
+    <td><%= vacancy.location.title %></td>
+    <td><span class="label label-warning"><%= number_to_currency(vacancy.salary) %></span></td>
+    <td><span class="label label-info"><%= vacancy.job_type.name %></span></td>
+    <td><img src="<%= vacancy.company.image %>" height="30px" /></td>
+    <td><span class="label label-important">Expires in <%= distance_of_time_in_words(vacancy.expiry_date, 0.minutes.from_now) %></span></td>
+    <td><%= link_to 'View Vacancy', vacancy, :class => "btn btn-mini btn-primary" %></td>
+  </tr>
+<% end %>
+</table>

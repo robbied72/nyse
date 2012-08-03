@@ -1,0 +1,23 @@
+<h1>Listing jobtags</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jobtags.each do |jobtag| %>
+  <tr>
+    <td><%= jobtag.title %></td>
+    <td><%= link_to 'Show', jobtag %></td>
+    <td><%= link_to 'Edit', edit_jobtag_path(jobtag) %></td>
+    <td><%= link_to 'Destroy', jobtag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jobtag', new_jobtag_path %>

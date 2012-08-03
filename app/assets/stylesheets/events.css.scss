@@ -1,0 +1,12 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.calendar td { height: 100px; width: 14.28%; }
+h2 {text-align: center;}
+.previous-month {margin-right:10px;}
+.next-month {margin-left:10px;}
+.calendar .today {border: 2px red solid;}
+
+.calendar .h a {color:red}
+.calendar .n a {color:orange}
+.calendar .l a {color:green}

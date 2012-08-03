@@ -1,0 +1,15 @@
+<% @blog.each do |blog| %>
+<div class="page-header">
+    <h1><%= blog.title %>
+    <small><%= blog.teaser %></small>
+    </h1>
+</div>
+    <p><span class="label label-info"><%= blog.created_at.strftime('%d/%m/%Y') %></span></p>
+    <p><b>Blog Category</b> - <%= blog.blog_cat.title %></p>
+    <p><%= raw truncate(blog.content,:length => 1000) %></p>
+    <p><%= blog.tags %></p>
+    <p><span style="float:right;"><%= link_to 'Read More', blog, :class => "btn btn-primary" %></span></p>
+    <div style="clear:both;"></div>
+    <hr />
+<% end %>
+

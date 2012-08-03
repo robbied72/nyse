@@ -1,0 +1,21 @@
+<%= form_for(@years_experience) do |f| %>
+  <% if @years_experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@years_experience.errors.count, "error") %> prohibited this years_experience from being saved:</h2>
+
+      <ul>
+      <% @years_experience.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

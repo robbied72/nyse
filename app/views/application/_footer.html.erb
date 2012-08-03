@@ -1,0 +1,67 @@
+<footer>
+<% @site_info.each do |site_info| %>
+<div class="container">
+<div class="row">
+<div class="span3">
+<div id="jstwitter">
+<h3><img src="/assets/images/twitter.png" title="Latest Tweets" /> Twitter Feed</h3>
+<div class="tweet">
+<a class="twtr-atreply" href="http://twitter.com/intent/user?screen_name=WordPress" target="_blank">@WordPress</a>
+stoked to hear about your plans to simplify. Keep up the good work!
+<div class="time">34 days ago</div>
+</div>
+<div class="tweet">
+<a class="twtr-atreply" href="http://twitter.com/intent/user?screen_name=wrapbootstrap" target="_blank">@wrapbootstrap</a>
+I'm still in the game, just been super busy lately. Expect some updates soon. :)
+<div class="time">36 days ago</div>
+</div>
+</div><br />
+<p><i>&copy; <%= site_info.name %> <%= Time.now.year %></i></p>
+</div>
+<div class="span3">
+<h3><img src="/assets/images/blog.png" title="Latest Blog Posts" /> Latest Blog Posts</h3>
+<% @blogs.each do |blog| %>
+<p><span class="label label-info"><%= blog.created_at.strftime('%m/%d/%Y') %></span> <b><%= blog.title %></b></p>
+<p>
+<%= raw truncate(blog.content,:length => 100) %>
+<%= link_to 'Read More', blog %>
+</p>
+<% end %>
+</div>
+<div class="span3">
+<h3><img src="/assets/images/contact.png" title="Contact Us" /> Contact Us!</h3>
+<p>Have a question or comment? We can help you!</p>
+<br>
+by phone: <%= site_info.telephone %>
+<br>
+by mail: <%= mail_to site_info.email %>
+<br>
+or by our:
+<a href="/pages/contact">Contact Page</a><br /><br />
+<img src="/assets/images/facebook.png" alt="Facebook"><img src="/assets/images/twitter_bird.png" alt="Follow Us"><img src="/assets/images/linked_in.png" alt="Linked In Profile">
+</div>
+<div class="span3">
+<h3><img src="/assets/images/news.png" title="Subscribe" /> Newsletter</h3>
+<p>Subscribe to our newsletter and get the latest news!</p>
+<%= form_for(@news_signup) do |f| %>
+  <% if @news_signup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news_signup.errors.count, "error") %> prohibited this news_signup from being saved:</h2>
+      <ul>
+      <% @news_signup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.text_field :name, :placeholder => "Your Name" %><br /><br />
+    <%= f.text_field :email, :placeholder => "Your Email Address" %><br /><br />
+  <div class="actions">
+    <%= f.submit "Subscribe", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+<% end %>
+</footer>

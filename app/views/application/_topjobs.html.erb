@@ -1,0 +1,25 @@
+      <div class="span3 well">
+        <h2 style="color:#3A87AD;">Hot Jobs</h2>
+        <table class="table table-striped">
+        <thead>
+        <tr>
+        <th>Position</th>
+        <th>Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @hot_vacancies.each do |vacancy| %>
+        <tr>
+        <td style="color:#D54D0B;"><%= link_to vacancy.title, vacancy %></td>
+        <td>
+            <span class="label label-inverse"><%= vacancy.location.title %></span><br /><span class="label label-warning"><%= number_to_currency(vacancy.salary) %></span><br />
+                <span class="label label-important">Expires in <%= distance_of_time_in_words(vacancy.expiry_date, 0.minutes.from_now) %></span>
+        </td>
+        </tr>
+        <% end %>
+        <tr>
+        <td colspan="3"><a class="btn btn-small btn-info" style="float:right" href="#"><i class="icon-search"></i> Search All Vacancies</a></td>
+        </tr>
+        </tbody>
+        </table>
+      </div>

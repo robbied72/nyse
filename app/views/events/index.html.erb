@@ -1,0 +1,10 @@
+<h1>My Appointments</h1>
+
+<br />
+
+<%= calendar @events do |event| %>
+  <div><span class="<% if event.cal_priority_id == 1 %>h<% elsif event.cal_priority_id == 2 %>n<% else %>l<% end %>"><%= link_to event.title, event %></span></div>
+<% end %>
+
+<%= link_to 'New Event', new_event_path, :class => "btn btn-mini btn-primary", :style => "float:right;" %>
+<div style="clear:both;"></div>

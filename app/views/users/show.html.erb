@@ -1,0 +1,155 @@
+<p id="notice"><%= notice %></p>
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Personal Details</legend>
+<img style="position:relative; margin-bottom:15px; border:1px solid #ccc; float:right;" src="http://maps.googleapis.com/maps/api/staticmap?center=
+<%= @user.latitude %>, <%= @user.longitude %>&zoom=9&size=315x181&maptype=roadmap&markers=color:blue%7C
+<%= @user.latitude %>, <%= @user.longitude %>&sensor=false" />
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>First Name:</b>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <b>Last Name:</b>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>location:</b>
+  <%= @user.location.title %>
+</p>
+
+<p>
+  <b>Home Phone:</b>
+  <%= @user.home_phone %>
+</p>
+
+<p>
+  <b>Cell Phone:</b>
+  <%= @user.cell_phone %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @user.zipcode %>
+</p>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Work Experience</legend>
+
+<b>What sectors do I have experience in?</b>
+<ul>
+  <% @user.sectors.each do |sector| %>
+    <li><%= sector.name %></li>
+  <% end %>
+</ul>
+
+<p>
+  <b>Years of Experience:</b>
+  <%= @user.years_experience.title %>
+</p>
+
+<p>
+  <b>Current Job Title:</b>
+  <%= @user.current_job_title %>
+</p>
+
+<p>
+  <b>Current Salary:</b>
+  <%= @user.current_salary.title %>
+</p>
+
+<p>
+  <b>My Key Skills:</b><br />
+  <%= @user.key_skills %>
+</p>
+
+<b>Additional languages spoken?</b>
+<ul>
+  <% @user.languages.each do |language| %>
+    <li><%= language.title %></li>
+  <% end %>
+</ul>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Education</legend>
+
+<p>
+  <b>Highest Qualification:</b>
+  <%= @user.education_level.title %>
+</p>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Your Next Move</legend>
+
+<p>
+  <b>Personal Summary:</b><br />
+  <%= @user.personal_summary %>
+</p>
+
+<p>
+  <b>Desired Job Title:</b>
+  <%= @user.desired_job_title %>
+</p>
+
+<b>Desired Location(s)</b>
+<ul>
+  <% @user.locations.each do |location| %>
+    <li><%= location.title %></li>
+  <% end %>
+</ul>
+
+<p>
+  <b>Desired Salary:</b>
+  <%= @user.desired_salary.title %>
+</p>
+
+<p>
+  <b>Desired Job Type:</b>
+  <%= @user.job_type.name %>
+</p>
+
+</fieldset>
+</div>
+
+<div class="well" style="border:1px solid #ccc;">
+<fieldset>
+<legend>Work Eligibility</legend>
+
+<p>
+  <b>Eligibility to work and live in the United States:</b>
+  <%if @user.work_in_usa == true %>
+  Yes
+  <% else %>
+  No
+  <% end %>
+</p>
+
+</fieldset>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-small btn-info" %> 

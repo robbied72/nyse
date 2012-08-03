@@ -1,0 +1,5 @@
+<% if current_user.id == @user.id %>
+<%= render 'form' %>
+<% else %>
+Access Denied!
+<% end %>

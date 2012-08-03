@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @task.title %>
+</h1>
+
+<p>
+  <%= @task.note %>
+</p>
+
+<p>
+  <b>Due Date:</b> <%= distance_of_time_in_words(@task.due, 0.minutes.from_now) %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <% if @task.complete == true %>Yes<% else %>No<% end %>
+</p>
+
+
+<%= link_to 'Destroy', (@task), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini btn-danger", :style => "float:right; margin-left:10px;"%> 
+<%= link_to 'Edit', edit_task_path(@task), :class => "btn btn-mini btn-primary", :style => "float:right; margin-left:10px;" %> 
+<%= link_to 'Calendar View', tasks_path, :class => "btn btn-mini btn-success", :style => "float:right; margin-left:10px;" %> 
+<%= link_to "Dashboard", dashboard_path, :class => "btn btn-mini btn-primary", :style => "float:right;" %>
+<div style="clear:both;"></div>

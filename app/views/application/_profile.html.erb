@@ -1,0 +1,9 @@
+ <% if current_user %>
+	<div class="well span3" style="background-color:#fff; border:1px solid #999;">
+		<h2><%= current_user.name %><img src="<%= current_user.image %>" class="thumbnail" style="float:right;" /></h2>
+		<h6><%= current_user.current_job_title %></h6>
+		<p><strong>Private Messages:</strong> <span class="badge badge-important">6</span></p>
+		<p><strong>Job Matches:</strong> <span class="badge badge-info">57</span></p>
+		<p><strong>Job invites:</strong> <span class="badge badge-success">3</span></p>
+	</div>
+<% end %>

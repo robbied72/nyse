@@ -1,0 +1,15 @@
+<% @currentSection = @page.menu %>
+<% unless @page.children.empty? %>
+		<div class="well span3" style="background-color:#fff; border:1px solid #999; min-height:248px;">
+		<ul class="nav nav-pills nav-stacked" style="padding:0;">
+		  <li class="nav-header" style="color:#fff; background-color:#3A87AD; border-radius: 5px;">
+		    <%= @currentSection %>
+		  </li>
+			<% unless @page.children.empty? %>
+			  <% for page in @page.children %>
+			    <li><%= link_to h(page.menu), page %></li>
+			  <% end %>
+			<% end %>	
+		</ul>
+	</div>
+<% end %>

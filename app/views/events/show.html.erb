@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= @event.title %></h1>
+
+<p>
+  <%= @event.note %>
+</p>
+
+<p>
+  Due Date: <%= distance_of_time_in_words(@event.start_time, 0.minutes.from_now) %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @event.cal_priority.name %>
+</p>
+
+<%= link_to 'Destroy', (@event), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini btn-danger", :style => "float:right; margin-left:10px;"%> 
+<%= link_to 'Edit', edit_event_path(@event), :class => "btn btn-mini btn-primary", :style => "float:right; margin-left:10px;" %>
+<%= link_to 'Calendar View', events_path,  :class => "btn btn-mini btn-success", :style => "float:right; margin-left:10px;" %>
+<%= link_to "Dashboard", dashboard_path, :class => "btn btn-mini btn-primary", :style => "float:right;" %>
+<div style="clear:both;"></div>

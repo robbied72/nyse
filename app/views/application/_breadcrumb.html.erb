@@ -1,0 +1,11 @@
+<% if @page.children.empty? %>
+<% if @page.ancestors.reverse %>
+<ul class="breadcrumb">
+  <li>
+    <% for page in @page.ancestors %>
+  		<%= link_to h(page.menu), page %> <span class="divider">/</span>
+	<% end %>
+  </li>
+</ul>
+<% end %>
+<% end %>

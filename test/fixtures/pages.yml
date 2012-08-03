@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  menu: MyString
+  title: MyString
+  parent_id: MyString
+  teasertext: MyString
+  content: MyText
+  publish: 2012-07-07
+  expire: 2012-07-07
+  active: false
+  slug: MyString
+
+two:
+  menu: MyString
+  title: MyString
+  parent_id: MyString
+  teasertext: MyString
+  content: MyText
+  publish: 2012-07-07
+  expire: 2012-07-07
+  active: false
+  slug: MyString

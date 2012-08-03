@@ -1,0 +1,20 @@
+<div class="well span3">
+<%= form_for(@news_signup) do |f| %>
+  <% if @news_signup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news_signup.errors.count, "error") %> prohibited this news_signup from being saved:</h2>
+      <ul>
+      <% @news_signup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.text_field :name, :placeholder => "sdfa" %><br /><br />
+    <%= f.text_field :email, :placeholder => "sdfa" %><br /><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

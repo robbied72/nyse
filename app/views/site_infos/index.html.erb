@@ -1,0 +1,45 @@
+<h1>Listing site_infos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address line 1</th>
+    <th>Address line 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Telephone</th>
+    <th>Url</th>
+    <th>Email</th>
+    <th>Google map api</th>
+    <th>Meta keywords</th>
+    <th>Meta description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @site_infos.each do |site_info| %>
+  <tr>
+    <td><%= site_info.name %></td>
+    <td><%= site_info.address_line_1 %></td>
+    <td><%= site_info.address_line_2 %></td>
+    <td><%= site_info.city %></td>
+    <td><%= site_info.state %></td>
+    <td><%= site_info.zip %></td>
+    <td><%= site_info.telephone %></td>
+    <td><%= site_info.url %></td>
+    <td><%= site_info.email %></td>
+    <td><%= site_info.google_map_api %></td>
+    <td><%= site_info.meta_keywords %></td>
+    <td><%= site_info.meta_description %></td>
+    <td><%= link_to 'Show', site_info %></td>
+    <td><%= link_to 'Edit', edit_site_info_path(site_info) %></td>
+    <td><%= link_to 'Destroy', site_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Site info', new_site_info_path %>

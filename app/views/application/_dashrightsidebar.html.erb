@@ -1,0 +1,48 @@
+      <div class="well">
+        <h4  class="alert alert-info">APPOINTMENTS</h4>
+
+        <h6><span class="label label-important">Today - <%= Date.today.strftime('%m/%d/%Y') %></span></h6>
+          <ul>
+            <% @eventtoday.each do |event| %>
+
+              <li style="list-style:none; margin-left:-25px;">
+                <i class="icon-calendar"></i> <%= link_to event.title, event %>
+            </li>
+
+            <% end %>
+          </ul>
+
+        <h6><span class="label label-success">Tomorrow - <%= Date.tomorrow.strftime('%m/%d/%Y') %></span></h6>
+          <ul>
+            <% @eventtomorrow.each do |event| %>
+
+              <li style="list-style:none; margin-left:-25px;">
+                <i class="icon-calendar"></i> <%= link_to event.title, event %>
+            </li>
+
+            <% end %>
+          </ul>
+
+        <%= link_to 'New Appointment', new_event_path, :class => "btn btn-mini btn-success" %> 
+        <%= link_to 'Calendar View', events_path, :class => "btn btn-mini btn-primary" %>
+      </div>
+
+        <div class="well">
+
+          <h4  class="alert alert-info">TASKS</h4>
+            <ul>
+          <% @tasks.each do |task| %>
+          <li style="list-style:none; margin-left:-25px;">
+            <i class="icon-ok"></i> <%= link_to task.title, task %> <% if task.due <= Date.today %><span class="label label-important" style="float:right;"><% elsif task.due == Date.tomorrow %><span class="label label-warning" style="float:right;"><% else %>
+              <span class="label label-success" style="float:right;"><% end %><%= task.due.strftime('%m/%d/%Y') %></span>
+          </li>
+        <% end %>
+        </ul>
+          
+        <%= link_to 'New Task', new_task_path, :class => "btn btn-mini btn-success" %> 
+        <%= link_to 'Calendar View', tasks_path, :class => "btn btn-mini btn-primary" %>
+        </div>
+
+        <div class="well">
+          <h4  class="alert alert-info">METRICS</h4>
+        </div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  note: MyString
+  due: 2012-07-30 12:13:34
+  complete: false
+  company_admin_id: 1
+  company_id: 1
+
+two:
+  title: MyString
+  note: MyString
+  due: 2012-07-30 12:13:34
+  complete: false
+  company_admin_id: 1
+  company_id: 1
