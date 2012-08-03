@@ -19,6 +19,12 @@ gem 'geocoder'
 gem 'impressionist'
 gem "simple_calendar", "~> 0.0.5"
 
+# Use unicorn as the app server
+gem 'unicorn'
+
+# Deploy with Capistrano
+gem 'capistrano'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
